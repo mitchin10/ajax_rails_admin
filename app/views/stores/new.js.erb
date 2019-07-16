@@ -1,0 +1,6 @@
+$('#store_dialog h3').html("Add New Store");
+$('.modal-body').html("<%= j render 'form', store: @store %>");
+$('#store_dialog').modal("show");
+$('#store_dialog').on("shown.bs.modal", function(){
+  $('.first_input').focus();
+});
