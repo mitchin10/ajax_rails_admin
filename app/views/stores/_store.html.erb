@@ -1,10 +1,9 @@
 <tr id="store_<%= store.id %>">
-  <td><%= store.title %></td>
+  <td><%= link_to store.title, store %></td>
   <td><%= store.address %></td>
   <td><%= store.city %></td>
   <td><%= store.state %></td>
   <td><%= store.zip_code %></td>
-  <td><%= link_to 'Show', store %></td>
   <td><%= link_to 'Edit', edit_store_path(store), remote: true %></td>
   <td><%= link_to 'Delete', store, method: :delete, remote: true, data: { confirm: "Are you sure you want to delete \'#{store.title}\' from the database?" } %></td>
 </tr>
