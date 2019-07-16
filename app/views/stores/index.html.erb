@@ -15,18 +15,7 @@
   </thead>
 
   <tbody>
-    <% @stores.each do |store| %>
-      <tr>
-        <td><%= store.title %></td>
-        <td><%= store.address %></td>
-        <td><%= store.city %></td>
-        <td><%= store.state %></td>
-        <td><%= store.zip_code %></td>
-        <td><%= link_to 'Show', store %></td>
-        <td><%= link_to 'Edit', edit_store_path(store) %></td>
-        <td><%= link_to 'Destroy', store, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+    <%= render @stores %>
   </tbody>
 </table>
 
