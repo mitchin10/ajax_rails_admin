@@ -28,6 +28,7 @@ class StoresController < ApplicationController
 
     respond_to do |format|
       if @store.save
+        format.js
         format.html { redirect_to @store, notice: 'Store was successfully created.' }
         format.json { render :show, status: :created, location: @store }
       else
@@ -42,6 +43,7 @@ class StoresController < ApplicationController
   def update
     respond_to do |format|
       if @store.update(store_params)
+        format.js
         format.html { redirect_to @store, notice: 'Store was successfully updated.' }
         format.json { render :show, status: :ok, location: @store }
       else
@@ -56,6 +58,7 @@ class StoresController < ApplicationController
   def destroy
     @store.destroy
     respond_to do |format|
+      format.js
       format.html { redirect_to stores_url, notice: 'Store was successfully destroyed.' }
       format.json { head :no_content }
     end
