@@ -1,0 +1,6 @@
+$('#store_dialog h5').html("Edit <%= @store.title %>");
+$('.modal-body').html("<%= j render 'form', store: @store %>");
+$('#store_dialog').modal("show");
+$('#store_dialog').on("shown.bs.modal", function(){
+  $('.first_input').focus();
+});
