@@ -1,13 +1,19 @@
 RailsAdmin.config do |config|
-  ### Set the application name
-  config.main_app_name = Proc.new { |controler| controler.params[:action].try(:titleize) }
   ### Popular gems integration
 
   ## == Devise ==
-  # config.authenticate_with do
-  #   warden.authenticate! scope: :user
-  # end
-  # config.current_user_method(&:current_user)
+  config.authenticate_with do
+    warden.authenticate! scope: :user
+  end
+  config.current_user_method(&:current_user)
+
+  ### Set Authorization to the Admin Panel
+  config.authorize_with do
+    redirect_to main_app.root_path unless current_user.admin == true
+  end
+
+  ### Set the application name
+  config.main_app_name = Proc.new { |controller| controller.params[:action].try(:titleize) }
 
   ## == Cancan ==
   # config.authorize_with :cancan
